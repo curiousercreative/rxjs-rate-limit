@@ -5,7 +5,7 @@ const { mergeMap } = require('rxjs/operators');
 const rateLimit = require('../src/index.js');
 
 const subject = new Subject().pipe(
-  rateLimit(20, 1000),
+  rateLimit(20, 1000), // 20 requests per second
   mergeMap(async v => {
     const { ok, status } = await fetch('http://httpstat.us/204');
 
